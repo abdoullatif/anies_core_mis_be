@@ -1,0 +1,323 @@
+{
+  "$id": "https://example.com/household.schema.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "Household Record",
+  "properties": {
+    "region": {
+      "type": "string",
+      "description": "The region where the household is located"
+    },
+    "prefecture": {
+      "type": "string",
+      "description": "The prefecture where the household is located"
+    },
+    "sous_prefecture": {
+      "type": "string",
+      "description": "The sub-prefecture where the household is located"
+    },
+    "district": {
+      "type": "string",
+      "description": "The district where the household is located"
+    },
+    "code_menage": {
+      "type": "string",
+      "description": "The household code"
+    },
+    "id_ben_principal": {
+      "type": "string",
+      "description": "ID of the main beneficiary"
+    },
+    "tel_1": {
+      "type": "string",
+      "description": "Primary phone number",
+      "pattern": "^[0-9]{8,15}$"
+    },
+    "tel_2": {
+      "type": "string",
+      "description": "Secondary phone number",
+      "pattern": "^[0-9]{8,15}$"
+    },
+    "id_chef_menage": {
+      "type": "string",
+      "description": "ID of the household head"
+    },
+    "n_membres": {
+      "type": "integer",
+      "description": "Number of household members"
+    },
+    "prenoms_bp": {
+      "type": "string",
+      "description": "First names of the main beneficiary"
+    },
+    "nom_bp": {
+      "type": "string",
+      "description": "Last name of the main beneficiary"
+    },
+    "sexe_bp": {
+      "type": "string",
+      "enum": ["M", "F"],
+      "description": "Gender of the main beneficiary (M for Male, F for Female)"
+    },
+    "lien_parente_bp": {
+      "type": "string",
+      "description": "Relationship to the main beneficiary"
+    },
+    "date_naissance_bp": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of birth of the main beneficiary (YYYY-MM-DD)"
+    },
+    "prenoms_chef": {
+      "type": "string",
+      "description": "First names of the household head"
+    },
+    "nom_chef": {
+      "type": "string",
+      "description": "Last name of the household head"
+    },
+    "sexe_chef": {
+      "type": "string",
+      "enum": ["M", "F"],
+      "description": "Gender of the household head (M for Male, F for Female)"
+    },
+    "date_naissance_chef": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of birth of the household head (YYYY-MM-DD)"
+    }
+  },
+  "required": ["region", "prefecture", "sous_prefecture", "district", "code_menage", "id_ben_principal", "n_membres", "prenoms_bp", "nom_bp", "sexe_bp", "date_naissance_bp", "prenoms_chef", "nom_chef", "sexe_chef", "date_naissance_chef"],
+  "description": "This document records the details of a household, including location and information about the main beneficiary and the household head."
+},
+
+
+// ---------------------------------- 1
+
+
+{
+  "$id": "https://example.com/beneficiares.schema.json",
+  "type": "object",
+  "title": "Record of beneficiares",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "properties": {
+    "region": {
+      "type": "string",
+      "description": "The region where the household is located"
+    },
+    "prefecture": {
+      "type": "string",
+      "description": "The prefecture where the household is located"
+    },
+    "sous_prefecture": {
+      "type": "string",
+      "description": "The sub-prefecture where the household is located"
+    },
+    "district": {
+      "type": "string",
+      "description": "The district where the household is located"
+    },
+    "code_menage": {
+      "type": "string",
+      "description": "The household code"
+    },
+    "id_ben_principal": {
+      "type": "string",
+      "description": "ID of the main beneficiary"
+    },
+    "prenoms_bp": {
+      "type": "string",
+      "description": "First names of the main beneficiary"
+    },
+    "nom_bp": {
+      "type": "string",
+      "description": "Last name of the main beneficiary"
+    },
+    "sexe_bp": {
+      "type": "string",
+      "enum": ["M", "F"],
+      "description": "Gender of the main beneficiary (M for Male, F for Female)"
+    },
+    "date_naissance_bp": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of birth of the main beneficiary (YYYY-MM-DD)"
+    },
+    "piece_didentite": {
+      "type": "string",
+      "description": "Last name of the main beneficiary"
+    },
+    "n_membres": {
+      "type": "integer",
+      "description": "Number of household members"
+    },
+    "tel_1": {
+      "type": "string",
+      "description": "Primary phone number",
+      "pattern": "^[0-9]{8,15}$"
+    },
+    "tel_2": {
+      "type": "string",
+      "description": "Secondary phone number",
+      "pattern": "^[0-9]{8,15}$"
+    },
+    "numero_paie": {
+      "type": "string",
+      "description": "Last name of the main beneficiary"
+    },
+    "operateur": {
+      "type": "string",
+      "description": "Last name of the main beneficiary"
+    }
+  },
+  "description": "This document records the details beneficiares"
+}
+
+
+// ------------- GOOD ---------------------
+
+{
+  "$id": "https://example.com/beneficiares.schema.json",
+  "type": "object",
+  "title": "Record of beneficiares",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "properties": {
+    "region": {
+      "type": "string",
+      "description": "The region where the household is located"
+    },
+    "prefecture": {
+      "type": "string",
+      "description": "The prefecture where the household is located"
+    },
+    "sous_prefecture": {
+      "type": "string",
+      "description": "The sub-prefecture where the household is located"
+    },
+    "district": {
+      "type": "string",
+      "description": "The district where the household is located"
+    },
+    "code_menage": {
+      "type": "string",
+      "description": "The household code"
+    },
+    "id_ben_principal": {
+      "type": "string",
+      "description": "ID of the main beneficiary"
+    },
+    "sexe_bp": {
+      "type": "string",
+      "enum": ["M", "F"],
+      "description": "Gender of the main beneficiary (M for Male, F for Female)"
+    },
+    "piece_didentite": {
+      "type": "string",
+      "description": "Last name of the main beneficiary"
+    },
+    "n_membres": {
+      "type": "integer",
+      "description": "Number of household members"
+    },
+    "tel_1": {
+      "type": "string",
+      "description": "Primary phone number",
+      "pattern": "^[0-9]{8,15}$"
+    },
+    "tel_2": {
+      "type": "string",
+      "description": "Secondary phone number",
+      "pattern": "^[0-9]{8,15}$"
+    },
+    "numero_paie": {
+      "type": "string",
+      "description": "Last name of the main beneficiary"
+    },
+    "operateur": {
+      "type": "string",
+      "description": "Last name of the main beneficiary"
+    }
+  },
+  "description": "This document records the details beneficiares"
+}
+
+
+//  ----------------  NEW ---------------------
+
+{
+  "$id": "https://example.com/beneficiares.schema.json",
+  "type": "object",
+  "title": "Record of beneficiares",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "properties": {
+    "region": {
+      "type": "string",
+      "description": "The region where the household is located"
+    },
+    "prefecture": {
+      "type": "string",
+      "description": "The prefecture where the household is located"
+    },
+    "sous_prefecture": {
+      "type": "string",
+      "description": "The sub-prefecture where the household is located"
+    },
+    "district": {
+      "type": "string",
+      "description": "The district where the household is located"
+    },
+    "code_menage": {
+      "type": "string",
+      "description": "The household code"
+    },
+    "id_ben_principal": {
+      "type": "string",
+      "description": "ID of the main beneficiary"
+    },
+    "first_name": {
+      "type": "string",
+      "description": "First names of the main beneficiary"
+    },
+    "last_name": {
+      "type": "string",
+      "description": "Last name of the main beneficiary"
+    },
+    "sexe_bp": {
+      "type": "string",
+      "enum": ["M", "F"],
+      "description": "Gender of the main beneficiary (M for Male, F for Female)"
+    },
+    "dob": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of birth of the main beneficiary (YYYY-MM-DD)"
+    },
+    "piece_didentite": {
+      "type": "string",
+      "description": "identity of the main beneficiary"
+    },
+    "n_membres": {
+      "type": "integer",
+      "description": "Number of household members"
+    },
+    "tel_1": {
+      "type": "string",
+      "description": "Primary phone number",
+      "pattern": "^[0-9]{8,15}$"
+    },
+    "tel_2": {
+      "type": "string",
+      "description": "Secondary phone number",
+      "pattern": "^[0-9]{8,15}$"
+    },
+    "numero_paie": {
+      "type": "string",
+      "description": "numero_paie of the main beneficiary"
+    },
+    "operateur": {
+      "type": "string",
+      "description": "Operateur of the main beneficiary"
+    }
+  },
+  "description": "This document records the details beneficiares"
+}

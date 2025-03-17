@@ -159,6 +159,10 @@
 		{
 			"name": "claim_sampling",
 			"pip": "git+https://github.com/openimis/openimis-be-claim_sampling_py.git@develop#egg=openimis-be-claim_sampling"
+		},
+		{
+			"name": "kobo_connect",
+			"pip": "git+https://github.com/openimis/openimis-be-kobo_connect_py.git@develop#egg=openimis-be-kobo_connect"
 		}
 	]
 }
