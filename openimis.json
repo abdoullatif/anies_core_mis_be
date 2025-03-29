@@ -2,7 +2,7 @@
     "modules": [
  {
             "name": "core",
-            "pip": "-e git+https://github.com/openimis/openimis-be-core_py.git@release/25.04#egg=openimis-be-core"
+            "pip": "-e git+https://github.com/sackofils/openimis-be-core_py.git@release/25.04#egg=openimis-be-core"
         },
             {
             "name": "individual",
@@ -134,7 +134,7 @@
         },
             {
             "name": "social_protection",
-            "pip": "-e git+https://github.com/openimis/openimis-be-social_protection_py.git@release/25.04#egg=openimis-be-social_protection"
+            "pip": "-e git+https://github.com/sackofils/openimis-be-social_protection_py.git@release/25.04#egg=openimis-be-social_protection"
         },
             {
             "name": "opensearch_reports",
