@@ -36,6 +36,6 @@ git+https://github.com/abdoullatif/openimis-be-payment_cycle_py.git@develop#egg=
 git+https://github.com/abdoullatif/openimis-be-calcrule_social_protection_py.git@develop#egg=openimis-be-calcrule_social_protection
 git+https://github.com/abdoullatif/openimis-be-payroll_py.git@develop#egg=openimis-be-payroll
 git+https://github.com/abdoullatif/openimis-be-controls_py.git@develop#egg=openimis-be-controls
-git+https://github.com/abdoullatif/openimis-be-grievance_py.git@develop#egg=openimis-be-grievance
+git+https://github.com/abdoullatif/openimis-be-grievance_social_protection_py.git@develop#egg=openimis-be-grievance_social_protection
 git+https://github.com/abdoullatif/openimis-be-claim_sampling_py.git@develop#egg=openimis-be-claim_sampling
 
