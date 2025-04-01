@@ -27,7 +27,7 @@ git+https://github.com/abdoullatif/openimis-be-calcrule_capitation_payment_py.gi
 git+https://github.com/abdoullatif/openimis-be-calcrule_commission_py.git@develop#egg=openimis-be-calcrule_commission
 git+https://github.com/abdoullatif/openimis-be-calcrule_contribution_income_percentage_py.git@develop#egg=openimis-be-calcrule_contribution_income_percentage
 git+https://github.com/abdoullatif/openimis-be-calcrule_fees_py.git@develop#egg=openimis-be-calcrule_fees
-git+https://github.com/abdoullatif/openimis-be-calcrule_unconditional_cash_payment_py.git@develop#egg=openimis-be-calcrule_unconditional_cash_payment
+git+https://github.com/abdoullatif/openimis-be-calcrule_unconditional_cash_payment_py.git@main#egg=openimis-be-calcrule_unconditional_cash_payment
 git+https://github.com/abdoullatif/openimis-be-im_export_py.git@develop#egg=openimis-be-im_export
 git+https://github.com/abdoullatif/openimis-be-dhis2_etl_py.git@develop#egg=openimis-be-dhis2_etl
 git+https://github.com/abdoullatif/openimis-be-social_protection_py.git@develop#egg=openimis-be-social_protection
