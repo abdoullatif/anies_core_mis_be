@@ -37,3 +37,6 @@ class Command(BaseCommand):
                 )
                 # Optionnel: arrêter l'exécution si un script échoue
                 # return
+
+
+# python manage.py run_sql_script
