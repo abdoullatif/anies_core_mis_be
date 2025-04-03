@@ -49,7 +49,7 @@ COMMENT ON EXTENSION "plpgsql" IS 'PL/pgSQL procedural language';
 -- Name: dateadd_day(integer, "date"); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
-CREATE USER postgres WITH PASSWORD '{PGPASSWORD}';
+-- CREATE USER postgres WITH PASSWORD '{PGPASSWORD}';
 GRANT ALL PRIVILEGES ON DATABASE test_IMIS TO postgres;
 
 CREATE FUNCTION "public"."dateadd_day"(integer, "date") RETURNS timestamp without time zone
