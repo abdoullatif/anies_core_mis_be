@@ -10,6 +10,7 @@ SCHEDULER_CONFIG = {
 }
 
 SCHEDULER_AUTOSTART = os.environ.get("SCHEDULER_AUTOSTART", False)
+AUTO_PROVISIONING_USER_GROUP = os.environ.get("AUTO_PROVISIONING_USER_GROUP", False)
 
 # Normally, one creates a "scheduler" method that calls the appropriate scheduler.add_job but since we are in a
 # modular architecture and calling only once from the core module, this has to be dynamic.
