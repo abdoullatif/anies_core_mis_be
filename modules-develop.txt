@@ -1,4 +1,4 @@
-git+https://github.com/sackofils/openimis-be-core_py.git@release/25.04#egg=openimis-be-core
+git+https://github.com/openimis/openimis-be-core_py.git@release/25.04#egg=openimis-be-core
 git+https://github.com/openimis/openimis-be-individual_py.git@release/25.04#egg=openimis-be-individual
 git+https://github.com/openimis/openimis-be-workflow_py.git@release/25.04#egg=openimis-be-workflow
 git+https://github.com/openimis/openimis-be-tasks_management_py.git@release/25.04#egg=openimis-be-tasks_management
