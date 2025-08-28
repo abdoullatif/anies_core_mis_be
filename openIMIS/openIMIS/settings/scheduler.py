@@ -22,6 +22,11 @@ SCHEDULER_JOBS = [
         "args": ["cron"],
         "kwargs": {"id": "openimis_renewal_batch", "hour": 8, "minute": 30, "replace_existing": True},
     },
+    {
+        "method": "kobo_connect.tasks.run_kobo_sync_job",
+        "args": ["cron"],
+        "kwargs": {"id": "kobo_sync_job", "minute": "0", "replace_existing": True},  # toutes les heures à l'heure pile
+    }
     # {
     #     "method": "policy_notification.tasks.send_notification_messages",
     #     "args": ["cron"],
