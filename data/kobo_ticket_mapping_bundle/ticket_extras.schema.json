@@ -1,0 +1,381 @@
+{
+  "$id": "https://example.org/schemas/ticket_extras.schema.json",
+  "type": "object",
+  "title": "Informations supplémentaires du ticket (json_ext)",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "_id": {
+      "type": [
+        "integer",
+        "string"
+      ],
+      "title": "Identifiant de soumission"
+    },
+    "_status": {
+      "type": "string",
+      "title": "Statut (Kobo)"
+    },
+    "anonyme": {
+      "enum": [
+        "oui",
+        "non"
+      ],
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "oui",
+          "title": "Oui"
+        },
+        {
+          "const": "non",
+          "title": "Non"
+        }
+      ],
+      "title": "Plainte anonyme"
+    },
+    "workflow": {
+      "type": "object",
+      "required": [
+        "history",
+        "assignee_role",
+        "escalation_level",
+        "last_escalated_at"
+      ],
+      "properties": {
+        "history": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "at",
+              "by",
+              "source",
+              "to_role",
+              "sla_days",
+              "to_user_id"
+            ],
+            "properties": {
+              "at": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Horodatage de l’évènement (RFC 3339)."
+              },
+              "by": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Auteur de l’action."
+              },
+              "source": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Origine de l’évènement (ex. moteur, fallback, manuel)."
+              },
+              "to_role": {
+                "type": "string",
+                "pattern": "^[A-Z_]+$",
+                "minLength": 1,
+                "description": "Rôle destinataire (notation majuscules/underscore)."
+              },
+              "sla_days": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Délai SLA associé (jours)."
+              },
+              "to_user_id": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1,
+                "description": "Identifiant utilisateur destinataire si assignation directe; sinon null."
+              }
+            },
+            "additionalProperties": false
+          },
+          "description": "Historique des transitions/affectations."
+        },
+        "assignee_role": {
+          "type": "string",
+          "pattern": "^[A-Z_]+$",
+          "minLength": 1,
+          "description": "Rôle actuellement assigné (ex. CGR)."
+        },
+        "escalation_level": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Niveau d’escalade courant."
+        },
+        "last_escalated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Dernière date/heure d’escalade."
+        }
+      },
+      "description": "Métadonnées de workflow et historique des attributions/escalades.",
+      "additionalProperties": false
+    },
+    "household": {
+      "type": "object",
+      "title": "Ménage",
+      "properties": {
+        "code_confirme": {
+          "type": "string",
+          "title": "Code ménage confirmé"
+        },
+        "autre_information": {
+          "type": "string",
+          "title": "Autres informations"
+        }
+      },
+      "additionalProperties": false
+    },
+    "kobo_uuid": {
+      "type": "string",
+      "title": "UUID Kobo"
+    },
+    "root_uuid": {
+      "type": "string",
+      "title": "UUID racine"
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "title": "Pièce jointe",
+        "required": [
+          "filename"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Identifiant interne"
+          },
+          "uid": {
+            "type": "string",
+            "title": "UID"
+          },
+          "filename": {
+            "type": "string",
+            "title": "Nom de fichier"
+          },
+          "mimetype": {
+            "type": "string",
+            "title": "Type MIME"
+          },
+          "download_url": {
+            "type": "string",
+            "title": "URL de téléchargement",
+            "format": "uri"
+          },
+          "media_file_basename": {
+            "type": "string",
+            "title": "Nom de base du média"
+          }
+        },
+        "additionalProperties": true
+      },
+      "title": "Pièces jointes"
+    },
+    "instance_id": {
+      "type": "string",
+      "title": "ID d’instance"
+    },
+    "region_code": {
+      "type": "string",
+      "title": "Code région"
+    },
+    "region_name": {
+      "type": "string",
+      "title": "Nom de la région"
+    },
+    "form_version": {
+      "type": "string",
+      "title": "Version du formulaire"
+    },
+    "formhub_uuid": {
+      "type": "string",
+      "title": "UUID Formhub"
+    },
+    "submitted_at": {
+      "type": "string",
+      "title": "Soumise le"
+    },
+    "submitted_by": {
+      "type": "string",
+      "title": "Soumise par"
+    },
+    "district_code": {
+      "type": "string",
+      "title": "Code district/commune"
+    },
+    "district_name": {
+      "type": "string",
+      "title": "Nom du district/commune"
+    },
+    "other_problem": {
+      "type": "string",
+      "title": "Autre problème"
+    },
+    "reporter_type": {
+      "type": "string",
+      "title": "Type de rapporteur"
+    },
+    "personne_visee": {
+      "enum": [
+        "oui",
+        "non"
+      ],
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "oui",
+          "title": "Oui"
+        },
+        {
+          "const": "non",
+          "title": "Non"
+        }
+      ],
+      "title": "La plainte vise-t-elle une personne ?"
+    },
+    "prefecture_code": {
+      "type": "string",
+      "title": "Code préfecture"
+    },
+    "prefecture_name": {
+      "type": "string",
+      "title": "Nom de la préfecture"
+    },
+    "_xform_id_string": {
+      "type": "string",
+      "title": "Identifiant du formulaire (texte)"
+    },
+    "temoin_plaignant": {
+      "enum": [
+        "oui",
+        "non"
+      ],
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "oui",
+          "title": "Oui"
+        },
+        {
+          "const": "non",
+          "title": "Non"
+        }
+      ],
+      "title": "Le plaignant est-il témoin ?"
+    },
+    "beneficiaire_type": {
+      "enum": [
+        "ben_principal",
+        "autre_beneficiaire"
+      ],
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "ben_principal",
+          "title": "Bénéficiaire principal"
+        },
+        {
+          "const": "autre_beneficiaire",
+          "title": "Autre bénéficiaire"
+        }
+      ],
+      "title": "Type de bénéficiaire"
+    },
+    "solution_proposee": {
+      "type": "string",
+      "title": "Solution proposée"
+    },
+    "anonyme_preference": {
+      "enum": [
+        "oui",
+        "non"
+      ],
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "oui",
+          "title": "Oui"
+        },
+        {
+          "const": "non",
+          "title": "Non"
+        }
+      ],
+      "title": "Souhaite rester anonyme"
+    },
+    "prefecture_cgp_code": {
+      "type": "string",
+      "title": "Code préfecture (CGP)"
+    },
+    "responsable_plainte": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "title": "Identifiant du responsable"
+      },
+      "title": "Responsables de traitement de la plainte"
+    },
+    "sub_prefecture_code": {
+      "type": "string",
+      "title": "Code sous-préfecture"
+    },
+    "sub_prefecture_name": {
+      "type": "string",
+      "title": "Nom de la sous-préfecture"
+    },
+    "cgp_nom_confirmation": {
+      "enum": [
+        "oui",
+        "non"
+      ],
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "oui",
+          "title": "Oui"
+        },
+        {
+          "const": "non",
+          "title": "Non"
+        }
+      ],
+      "title": "Nom du CGP confirmé"
+    },
+    "complainant_lastname": {
+      "type": "string",
+      "title": "Nom du plaignant"
+    },
+    "complainant_firstname": {
+      "type": "string",
+      "title": "Prénom du plaignant"
+    },
+    "cgp_contact_confirmation": {
+      "enum": [
+        "oui",
+        "non"
+      ],
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "oui",
+          "title": "Oui"
+        },
+        {
+          "const": "non",
+          "title": "Non"
+        }
+      ],
+      "title": "Contact du CGP confirmé"
+    },
+    "sous_prefecture_cgp_code": {
+      "type": "string",
+      "title": "Code sous-préfecture (CGP)"
+    }
+  },
+  "additionalProperties": true
+}

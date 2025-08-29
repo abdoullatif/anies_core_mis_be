@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/ticket_ingestion.schema.json",
+  "title": "Ticket ingestion (core fields)",
+  "type": "object",
+  "properties": {
+    "reference": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "subcategory": {
+      "type": "string"
+    },
+    "intake_channel": {
+      "type": "string"
+    },
+    "reporter_name": {
+      "type": "string"
+    },
+    "reporter_phone": {
+      "type": "string"
+    },
+    "reporter_type": {
+      "type": "string"
+    },
+    "region_code": {
+      "type": "string"
+    },
+    "prefecture_code": {
+      "type": "string"
+    },
+    "sub_prefecture_code": {
+      "type": "string"
+    },
+    "district_code": {
+      "type": "string"
+    },
+    "region_name": {
+      "type": "string"
+    },
+    "prefecture_name": {
+      "type": "string"
+    },
+    "sub_prefecture_name": {
+      "type": "string"
+    },
+    "district_name": {
+      "type": "string"
+    },
+    "household_code": {
+      "type": "string"
+    },
+    "submitted_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "submitted_by": {
+      "type": "string"
+    },
+    "kobo_uuid": {
+      "type": "string"
+    },
+    "instance_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "reference",
+    "description",
+    "category",
+    "submitted_at"
+  ]
+}
