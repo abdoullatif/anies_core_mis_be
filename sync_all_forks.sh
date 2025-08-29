@@ -83,4 +83,4 @@ done
 
 echo "Synchronisation terminée pour tous les modules."
 
-# ./sync_all_forks.sh ./modules.json release/25.04 ../src sackofils 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
+# ./sync_all_forks.sh ./modules.json release/25.04 ../src
