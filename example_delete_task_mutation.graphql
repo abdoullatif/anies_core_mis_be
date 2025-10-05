@@ -1,0 +1,35 @@
+# Mutation GraphQL pour supprimer des tâches
+# Seuls les utilisateurs avec les permissions "191004" peuvent utiliser cette mutation
+
+mutation DeleteTasks($ids: [UUID!]!) {
+  deleteTask(input: {
+    ids: $ids
+  }) {
+    clientMutationId
+  }
+}
+
+# Variables d'exemple:
+# {
+#   "ids": ["5bbe0c6b-2869-4ddc-87f8-faed4c06e0b8", "2ddf3849-014a-4f9b-9818-aadc7d6f11c3"]
+# }
+
+# Réponse attendue:
+# {
+#   "data": {
+#     "deleteTask": {
+#       "clientMutationId": null
+#     }
+#   }
+# }
+
+# Utilisation côté frontend:
+# 1. Vérifier que l'utilisateur a les permissions de suppression
+# 2. Afficher un bouton "Supprimer" pour les tâches éligibles
+# 3. Confirmer la suppression avant d'envoyer la mutation
+# 4. Actualiser la liste après suppression
+
+# Conditions d'affichage du bouton supprimer:
+# - L'utilisateur doit avoir la permission "191004" (gql_task_delete_perms)
+# - La tâche doit être dans un état supprimable (pas COMPLETED ou FAILED selon la logique métier)
+# - L'utilisateur doit avoir accès à la tâche (via les permissions existantes)
