@@ -2,7 +2,7 @@ import os
 
 
 
-os_hosts = os.environ.get("OPENSEARCH_HOSTS", "opensearch:9200")
+os_hosts = os.environ.get("OPENSEARCH_HOSTS", "opensearch:9200") 
 
 
 OPEN_SEARCH_HTTP_PORT = os.environ.get("OPEN_SEARCH_HTTP_PORT", "9200")

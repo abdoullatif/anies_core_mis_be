@@ -14,4 +14,8 @@ CSRF_TRUSTED_ORIGINS = [
 # Set CORS_ALLOWED_ORIGINS to match CSRF_TRUSTED_ORIGINS
 CORS_ALLOWED_ORIGINS = CSRF_TRUSTED_ORIGINS
 
+# Note: CSRF settings are automatically managed in security.py based on ENVIRONMENT variable
+# For development: ENVIRONMENT=dev (default)
+# For production: ENVIRONMENT=prod
+
 ASYNC = os.environ.get('ASYNC', False)

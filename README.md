@@ -2,6 +2,7 @@
 
 | ENV                         | Values                               | Description                                                                                                                                                                                                                                                                                                                                                                                            |
 | --------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ENVIRONMENT                 | dev, prod                            | **NEW**: Environment configuration that automatically manages CSRF and security settings. Set to 'dev' for development (CSRF_COOKIE_SECURE=False, SESSION_COOKIE_SECURE=False) or 'prod' for production (CSRF_COOKIE_SECURE=True, SESSION_COOKIE_SECURE=True). Default: dev. This replaces manual configuration and ensures proper security settings based on environment. |
 | MODE                        | DEV, PROD                            | This is the mode of running the application. There are 2 modes available. DEV for the Development mode and PROD for the production mode. Certain settings will be changed according to the mode. Such as in the PROD mode, mutation will run asynchronously and synchronously otherwise. Same applies to DEBUG, it will be OFF in PROD and TRUE otherwise.                                             |
 | DB_ENGINE                   | django.db.backends.postgresql, mssql | Currently openIMIS supports 2 databases, as the values suggested, postgres and mssql.                                                                                                                                                                                                                                                                                                                 |
 | DEMO_DATASET                   | true                          | Define if the database should be initiated with demo dataset. Comment for empty database.                                                                                                                                                                                                                                                                                                                                    |
@@ -353,13 +354,27 @@ Note: If RSA keys are not provided, the system defaults to HS256. Using RS256 wi
 CSRF (Cross-Site Request Forgery) protection ensures that unauthorized commands are not performed on behalf of authenticated users without their consent. It achieves this by including a unique token in each form submission or AJAX request, which is then validated by the server.
 When using JWT (JSON Web Token) for authentication, CSRF protection is not executed because the server does not rely on cookies for authentication. Instead, the JWT is included in the request headers, making CSRF attacks less likely.
 
+### Automatic Environment Configuration
+
+**NEW**: CSRF security settings are now automatically managed based on the `ENVIRONMENT` variable:
+
+- **Development** (`ENVIRONMENT=dev`):
+  - `CSRF_COOKIE_SECURE=False` - Allows HTTP cookies
+  - `SESSION_COOKIE_SECURE=False` - Allows HTTP sessions
+  - `CSRF_COOKIE_HTTPONLY=False` - Allows JavaScript access for debugging
+
+- **Production** (`ENVIRONMENT=prod`):
+  - `CSRF_COOKIE_SECURE=True` - Requires HTTPS cookies
+  - `SESSION_COOKIE_SECURE=True` - Requires HTTPS sessions
+  - `CSRF_COOKIE_HTTPONLY=True` - Enhanced security
+
 ### Development Environment
 
-In the development environment, CSRF protection is configured to allow requests from `localhost:3000` and `localhost:8000` by default in .env.example file.
+Set `ENVIRONMENT=dev` in your `.env` file for development. CSRF protection is configured to allow requests from `localhost:3000` and `localhost:8000` by default.
 
 ### Production Environment
 
-In the production environment, you need to specify the trusted origins in your `.env` file.
+Set `ENVIRONMENT=prod` in your `.env` file for production. You also need to specify the trusted origins in your `.env` file.
 
 1. **Trusted Origins Setup**:
    - Define the trusted origins in your `.env` file to allow cross-origin requests from specific domains.

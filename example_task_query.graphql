@@ -1,0 +1,50 @@
+# Exemple de requête GraphQL pour tester la nouvelle colonne "Utilisateurs"
+query GetTasksWithExecutorsStatus {
+  task {
+    edges {
+      node {
+        id
+        uuid
+        source
+        status
+        entityString
+        dateCreated
+        taskGroup {
+          code
+          completionPolicy
+        }
+        executorsStatus {
+          userId
+          username
+          fullName
+          status
+          statusDisplay
+        }
+      }
+    }
+  }
+}
+
+# Exemple de requête pour une tâche spécifique
+query GetTaskWithExecutorsStatus($taskId: UUID!) {
+  task(id: $taskId) {
+    id
+    uuid
+    source
+    status
+    entityString
+    dateCreated
+    taskGroup {
+      code
+      completionPolicy
+    }
+    executorsStatus {
+      userId
+      username
+      fullName
+      status
+      statusDisplay
+    }
+  }
+}
+
