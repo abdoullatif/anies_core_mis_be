@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     "drf_spectacular",  # Swagger UI for FHIR API
     "axes",
     "django_opensearch_dsl",
+    "django_json_widget"
 ]
 INSTALLED_APPS += OPENIMIS_APPS
 INSTALLED_APPS += ["apscheduler_runner", "signal_binding", "receiver_binding"]  # Signal binding should be last installed module
@@ -88,7 +89,7 @@ REST_FRAMEWORK = {
     "EXCEPTION_HANDLER": "openIMIS.ExceptionHandlerDispatcher.dispatcher",
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
-if REMOTE_USER_AUTHENTICATION: 
+if REMOTE_USER_AUTHENTICATION:
     REST_FRAMEWORK["DEFAULT_AUTHENTICATION_CLASSES"].insert(
         0,
         "rest_framework.authentication.RemoteUserAuthentication",
@@ -178,6 +179,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATIC_URL = "/%sstatic/" % SITE_ROOT()
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 ASGI_APPLICATION = "openIMIS.asgi.application"
 
@@ -194,3 +197,4 @@ EMAIL_USE_SSL = os.environ.get("EMAIL_USE_SSL", False)
 # By default, the maximum upload size is 2.5Mb, which is a bit short for base64 picture upload
 DATA_UPLOAD_MAX_MEMORY_SIZE = int(os.environ.get('DATA_UPLOAD_MAX_MEMORY_SIZE', 10 * 1024 * 1024))
 
+KOBO_URL = os.environ.get("KOBO_URL", "https://ee-eu.kobotoolbox.org")

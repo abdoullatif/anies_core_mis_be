@@ -25,8 +25,13 @@ SCHEDULER_JOBS = [
     {
         "method": "kobo_connect.tasks.run_kobo_sync_job",
         "args": ["cron"],
-        "kwargs": {"id": "kobo_sync_job", "minute": "0", "replace_existing": True},  # toutes les heures à l'heure pile
-    }
+        "kwargs": {"id": "kobo_sync_job", "minute": "0", "replace_existing": True},
+    },
+    {
+       "method": "monitoring_evaluation.tasks.run_recalculate_indicators_job",
+       "args": ["cron"],
+       "kwargs": {"id": "recalculate_indicators_job", "minute": "5", "replace_existing": True},
+    },
     # {
     #     "method": "policy_notification.tasks.send_notification_messages",
     #     "args": ["cron"],

@@ -19,6 +19,8 @@ from django.urls import path
 from django.views.decorators.csrf import csrf_exempt
 from .views import OpenIMISGraphQLView
 from graphql_jwt.decorators import jwt_cookie
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 from .openimisurls import openimis_urls
@@ -32,3 +34,6 @@ urlpatterns = [
     ),
     url(r"^ht/", include("health_check.urls")),
 ] + openimis_urls()
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
