@@ -9,8 +9,14 @@ SCHEDULER_CONFIG = {
     "apscheduler.executors.processpool": {"type": "threadpool"},
 }
 
-SCHEDULER_AUTOSTART = os.environ.get("SCHEDULER_AUTOSTART", False)
-AUTO_PROVISIONING_USER_GROUP = os.environ.get("AUTO_PROVISIONING_USER_GROUP", False)
+SCHEDULER_AUTOSTART = os.environ.get("SCHEDULER_AUTOSTART", "false").lower() == "true"
+_auto_provisioning_group = os.environ.get('AUTO_PROVISIONING_USER_GROUP')
+AUTO_PROVISIONING_USER_GROUP = (
+    False
+    if not _auto_provisioning_group
+    or _auto_provisioning_group.lower() in {'false', '0', 'no'}
+    else _auto_provisioning_group
+)
 
 # Normally, one creates a "scheduler" method that calls the appropriate scheduler.add_job but since we are in a
 # modular architecture and calling only once from the core module, this has to be dynamic.

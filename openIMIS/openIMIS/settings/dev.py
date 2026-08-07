@@ -18,4 +18,4 @@ CORS_ALLOWED_ORIGINS = CSRF_TRUSTED_ORIGINS
 # For development: ENVIRONMENT=dev (default)
 # For production: ENVIRONMENT=prod
 
-ASYNC = os.environ.get('ASYNC', False)
+ASYNC = os.environ.get('ASYNC', 'false').lower() == 'true'

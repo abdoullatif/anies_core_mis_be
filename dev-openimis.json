@@ -64,9 +64,9 @@
             "name": "claim_batch",
             "pip": "-e git+https://github.com/sackofils/openimis-be-claim_batch_py.git@release/25.04#egg=openimis-be-claim_batch"
         },
-            {
+        {
             "name": "tools",
-            "pip": "-e git+https://github.com/sackofils/openimis-be-tools_py.git@release/25.04#egg=openimis-be-tools"
+            "pip": "-e git+https://github.com/openimis/openimis-be-tools_py.git@release/25.04#egg=openimis-be-tools"
         },
             {
             "name": "api_fhir_r4",
@@ -171,6 +171,14 @@
             {
             "name": "api_etl",
             "pip": "-e git+https://github.com/sackofils/openimis-be-api_etl_py.git@release/25.04#egg=openimis-be-api_etl"
+        },
+            {
+            "name": "kobo_connect",
+            "pip": "-e git+https://github.com/sackofils/openimis-be-kobo_connect_py.git@release/25.04#egg=openimis-be-kobo_connect"
+        },
+            {
+            "name": "monitoring_evaluation",
+            "pip": "-e git+https://github.com/sackofils/openimis-be-monitoring_evaluation_py.git@main#egg=openimis-be-monitoring_evaluation"
         }
 
     ]

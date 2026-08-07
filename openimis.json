@@ -176,7 +176,10 @@
         {
             "name": "kobo_connect",
             "pip": "git+https://github.com/sackofils/openimis-be-kobo_connect_py.git@release/25.04#egg=openimis-be-kobo_connect"
+        },
+        {
+            "name": "monitoring_evaluation",
+            "pip": "git+https://github.com/sackofils/openimis-be-monitoring_evaluation_py.git@main#egg=openimis-be-monitoring_evaluation"
         }
-
     ]
 }
